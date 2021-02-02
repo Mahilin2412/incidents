@@ -4,14 +4,15 @@ orbs:
   node: circleci/node@4.1.0
   # https://circleci.com/developer/orbs/orb/circleci/aws-ecr
   #aws-ecr: circleci/aws-ecr@6.15.0
-working_directory: ~/incidents/backend
+working_directory: $CIRCLE_WORKING_DIRECTORY
 jobs:
   test:
     executor:
       name: node/default
       tag: 14.15.1
     steps:
-    - checkout
+    - checkout:
+        path: ~/backend
     - node/install-packages:
         pkg-manager: npm
     - run:
