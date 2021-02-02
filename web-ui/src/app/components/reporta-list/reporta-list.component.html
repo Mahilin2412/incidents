@@ -1,0 +1,40 @@
+<div class="row">
+  <div class="col-md-12">
+      <div class="title">
+          <div class="title-body">
+              <div class="table-responsive">
+                  <table datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger" class="table table-borderless">
+                  <thead>
+                  <tr >
+                  <td>n°</td>
+                  <td>Producto</td>
+                  <td>Acronimo</td>
+                  <td>Fecha</td>
+                  <td>Acciones</td>
+              
+            </tr>
+          </thead>
+       
+          <tbody>
+          
+                <tr  *ngFor="let reportas of reportas">
+                  <td> {{reportas.pro_id}} </td>
+                  <td> {{reportas.name_pro }} </td>
+                  <td> {{reportas.acronym_product}} </td>
+                  <td> {{reportas.created_at}} </td>
+  
+                  <td>
+                    <a  [routerLink]="['/reporta/edit', reportas.pro_id]" class="btn btn-primary btn-sm" title="Editar"><i class="fas fa-pencil-alt"></i></a>
+                  
+                   <a (click)="deleteReporta(reportas.pro_id)" class="btn btn-danger btn-sm" title="Eliminar"><i class="far fa-trash-alt"></i></a>
+                  </td>
+                </tr>
+        
+            
+              </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+</div>
+</div>

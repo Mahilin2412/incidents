@@ -1,0 +1,26 @@
+<button class="btn btn-outline-dark" routerLink="/operations/add"><i
+    class="fas fa-plus-circle"></i></button><br><br><br>
+<table datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger"
+class="table table-borderless">
+
+<thead>
+    <tr>
+        <th>Id</th>
+        <th>Nombre De Operación</th>
+        <th>Abreviación</th>
+        <th>Opciones</th>
+    </tr>
+</thead>
+<tbody>
+    <tr *ngFor="let operation of operations">
+        <td>{{operation.Id_operation}}</td>
+        <td>{{operation.Name}}</td>
+        <td>{{operation.Initials}}</td>
+        <td>
+            <button class="btn btn-danger" (click)="deleteOperation(operation.Id_operation)"><i class="far fa-trash-alt"></i></button>
+            <button [routerLink] = "['/operations/edit', operation.Id_operation]" class="btn btn-success"><i class="fas fa-edit"></i></button>
+        </td>
+    </tr>
+</tbody>
+
+</table>

@@ -1,0 +1,71 @@
+<div class="col-md-6 mx-auto">
+    <div class="card">
+        <div class="card-body">
+            <form>
+                <input type="hidden" name="id" [(ngModel)]="incident.incident_log_id">
+                <div class="form-group">
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label for="fk_product_id">Producto:</label>
+                            <select name="fk_product_id" [(ngModel)]="incident.fk_product_id" class="form-control">
+                                <option value="0">Seleccione...</option>
+                                <option *ngFor="let product of products" [value]="product.product_id">{{product.acronym_product}} - {{product.name_product}}</option>
+                            </select>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="inl_IM">IM:</label>
+                            <input type="text" name="inl_IM" [(ngModel)]="incident.inl_IM"  placeholder="IM" class="form-control">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-12">
+                            <label for="inl_description">Descripción:</label>
+                            <textarea name="inl_description" [(ngModel)]="incident.inl_description" placeholder="Descripción" rows="2" class="form-control"></textarea>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label for="escalation_date">Fecha escalamiento:</label>
+                            <input type="date" name="escalation_date" [(ngModel)]="incident.escalation_date" class="form-control">
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="scalate_to">Escalado a:</label>
+                            <input type="text" name="scaled_to" [(ngModel)]="incident.scaled_to" placeholder="Escalado a" class="form-control">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label for="inl_status">Estado:</label>
+                            <select name="inl_status" [(ngModel)]="incident.inl_status" class="form-control">
+                                <option value="0">Seleccione...</option>
+                                <option value="1">Abierto</option>
+                                <option value="2">Cerrado</option>
+                            </select>
+                        </div>
+                        <div class="from group col-md-6">
+                            <label for="closing_date">Fecha cierre (opcional):</label>
+                            <input type="date" name="closing_date" [(ngModel)]="incident.closing_date" class="form-control">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-12">
+                            <label for="inl_comments">Comentarios:</label>
+                            <textarea name="inl_comments" [(ngModel)]="incident.inl_comments" placeholder="Comentarios" rows="2" class="form-control"></textarea>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-12">
+                            <label for="user_processed">Usuario:</label>
+                            <input type="text" name="user_processed" [(ngModel)]="incident.user_processed" placeholder="Usuario quien escribe el incidente" class="form-control" readonly="readonly">
+                        </div>
+                    </div>
+                </div>
+                <button class="btn btn-success btn-block" (click)="edit == true ? updateIncident() : saveNewincident()">
+                    Guardar
+                </button>
+
+            </form>
+
+        </div>
+    </div>
+</div>

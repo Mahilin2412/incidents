@@ -1,0 +1,27 @@
+<div class="col-md-4 offset-md-4">
+    
+    <div class="card">
+        <div class="card-body">
+            <h2 style="text-align: center;">Registrar</h2>
+            <form  method="POST">
+                <div class="form-group">
+                    <label>Ingrese producto</label>
+                  <input type="text" name="name_pro" [(ngModel)]="reporta.name_pro" placeholder="Producto" class="form-control">
+                </div>
+                <div class="form-group">
+                <label>Ingrese acronimo del producto</label>
+                <input type="text" name="acronym_product" [(ngModel)]="reporta.acronym_product" placeholder="Acronimo" class="form-control">
+              </div>
+              <div class="form-group">
+                <label>Seleccione Fecha</label>
+                <input type="datetime-local" name="created_at" [(ngModel)]="reporta.created_at" placeholder="start_date" class="form-control" autofocus>
+              <!--<input type="datetime-local" name="created_at" [(ngModel)]="reporta.created_at" class="form-control"  id="start" name="trip-start" value="2021-01-01" min="2018-01-01" max="2030-12-31" autofocus>-->
+            </div>
+                <button class="btn btn-primary btn-block" (click)="edit ? updateReporta() : saveNewReporta()">
+                  Guardar
+                </button>
+                
+              </form>
+        </div>
+    </div>
+</div>

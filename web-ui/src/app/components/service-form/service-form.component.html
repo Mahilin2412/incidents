@@ -1,0 +1,59 @@
+
+    <div class="col-md-6 mx-auto offset-md-2">
+    <div class="card">
+        <div class="card-body">
+            <form>
+                <div class="mb-4">
+                    <div class="mb-4">
+                        <label for="exampleInputEmail1" class="form-label">Incidente</label>
+                        <div class="form-group">
+                            <select name="incident_log_id" [(ngModel)]="service.incident_log_id" placeholder="incident_log_id" class="form-control" autofocus>
+                                <option value="0">Seleccione...</option>
+                                <option *ngFor="let incidents of incident" [value]="incidents.incident_log_id">{{incidents.inl_IM}}</option>
+                                </select>   
+                        </div> 
+                    </div>
+                        <div class="mb-4">
+
+                            <label for="exampleInputEmail1" class="form-label">Fallo</label>
+                            <input type="text" name="fallo" [(ngModel)]="service.fallo" placeholder="" class="form-control" autofocus>
+
+                        </div>
+                            <div class="mb-4">
+                            <label for="exampleInputEmail1" class="form-label">Asignación</label>
+                            <select name="Id_operation" [(ngModel)]="service.Id_operation" placeholder="Id_operation" class="form-control" autofocus>
+                                <option value="0" >
+                                    Seleccione...
+                                </option>
+                                <option *ngFor="let operations of operation" [value]="operations.Id_operation">
+                                    {{operations.Name}}
+                                </option>
+                            </select>    
+                        </div>
+                        <div class="mb-4">
+                        
+                            <label for="exampleInputEmail1" class="form-label">Fecha Inicio</label>
+                            <input type="datetime-local" name="start_dates" [(ngModel)]="service.start_dates" placeholder="start_date" class="form-control" autofocus>
+                        
+                        </div>
+                        <div class="mb-4">
+                        
+                            <label for="exampleInputEmail1" class="form-label">Fecha Fin</label>
+                            <input type="datetime-local" name="end_date" [(ngModel)]="service.end_date" placeholder="end_date" class="form-control" autofocus>
+                        
+                        </div>
+                        <div class="mb-4">
+                        
+                            <label for="exampleInputEmail1" class="form-label">Comentarios</label>
+                            <input type="text" name="comments" [(ngModel)]="service.comments" placeholder="comments" class="form-control" autofocus>
+                        
+                        </div>
+                        <div class="d-grid gap-3">
+                            <button class="btn btn-success btn-block" type="button" (click)="edit ? updateService() : saveNewService()">Guardar</button>
+                            <button class="btn btn-primary btn-block p-2" type="button" (click)="cancelSavesService()">Cancelar</button>
+                        </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    </div>

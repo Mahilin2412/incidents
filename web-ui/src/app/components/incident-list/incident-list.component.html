@@ -1,0 +1,69 @@
+<div class="row">
+    <div class="col-md-12">
+        <div class="title">
+            <div class="title-body">
+                <div class="table-responsive">
+                    <table datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger" class="table table-borderless">
+                        <thead>
+                            <tr>
+                                <th>Producto</th>
+                                <th>IM</th>
+                                <th>Fecha de escalimiento</th>
+                                <th>Fecha de cierre</th>
+                                <th>Escalado a</th>
+                                <th>Estado</th>
+                                <th>Días abierto</th>
+                                <th>Tiempo</th>
+                                <th>Acciones</th>
+                                <th>Descripción</th>
+                                <th>Comentarios</th>
+                                <th>Usuario</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let incident of incidents">
+                                <td>{{incident.acronym_product}}</td>
+                                <td>{{incident.inl_IM}}</td>
+                                <td>{{incident.escalation_date}}</td>
+                                <td>{{incident.closing_date}}</td>
+                                <td>{{incident.scaled_to}}</td>
+                                <td *ngIf="incident.inl_status == 1; else opposite_case">
+                                    <span class="badge badge-success">Abierto</span>
+                                </td>
+                                <ng-template #opposite_case>
+                                <td>
+                                    <span class="badge badge-danger">Cerrado</span>
+                                </td>
+                                </ng-template>
+                                <td>{{incident.scalation_times}}</td>
+                                <td *ngIf="incident.scalation_time >= 0 && incident.scalation_time <= 14; else medium"><span class="badge badge-primary">Bajo menor a 15 días</span></td>
+                                <ng-template #medium>
+                                    <td *ngIf="incident.scalation_time >= 15 && incident.scalation_time <= 29; else high"><span class="badge badge-success">Medio > 15 y <= 30 Días</span></td>
+                                </ng-template>
+                                <ng-template #high>
+                                    <td *ngIf="incident.scalation_time >= 30 && incident.scalation_time <= 59; else maximum"><span class="badge badge-warning">Alto > 30 y <= 60 Días</span></td>
+                                </ng-template>
+                                <ng-template #maximum> 
+                                    <td *ngIf="incident.scalation_time >= 60"><span class="badge badge-danger">Urgente > 60 Días</span></td>
+                                </ng-template>
+                                <td scope="row">
+                                    <div class="btn-group btn-group-sm text-center">
+                                        <button [routerLink]="['/incidents/edit', incident.incident_log_id]" class="btn btn-primary btn-sm" title="Editar">
+                                            <i class="fas fa-pencil-alt"></i>
+                                        </button>
+                                        <button class="btn btn-danger btn-sm" (click)="deleteIncident(incident.incident_log_id)" title="Eliminar">
+                                            <i class="fas fa-trash-alt"></i>
+                                        </button>
+                                    </div>
+                                </td>
+                                <td>{{incident.inl_description}}</td>
+                                <td>{{incident.inl_comments}}</td>
+                                <td>{{incident.user_processed}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

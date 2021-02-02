@@ -1,0 +1,110 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="container">
+    <a class="navbar-brand" *ngIf="authService.logIn; else opposite_case" [routerLink]="['/incidents']">
+      <img src="/assets/images/logo.png" width="250" height="60" class="d-inline-block align-top" alt="">
+    </a>
+    <ng-template #opposite_case>
+      <a class="navbar-brand" [routerLink]="['/']">
+        <img src="/assets/images/logo.png" width="250" height="60" class="d-inline-block align-top" alt="">
+      </a>
+    </ng-template>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item dropdown" *ngIf="authService.logIn">
+          <a class="nav-link dropdown-toggle" id="navbardrop" data-toggle="dropdown">
+            <i class="fas fa-book"></i> Reporta
+          </a>
+          <div class="dropdown-menu">
+            <li class="nav-item">
+              <a class="nav-link" [routerLink]="['/reporta/add']" routerLinkActive="active" *ngIf="authService.logIn">Insertar Reporta</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" [routerLink]="['/reporta']" routerLinkActive="active" *ngIf="authService.logIn">Reporta</a>
+            </li>
+          </div>
+      </li>
+
+        <li class="nav-item dropdown" *ngIf="authService.logIn">
+          <a class="nav-link dropdown-toggle" id="navbardrop" data-toggle="dropdown">
+            <i class="fas fa-briefcase"></i> Interno
+          </a>
+          <div class="dropdown-menu">
+            <li class="nav-item">
+              <a class="nav-link" [routerLink]="['/internos/add']" routerLinkActive="active" *ngIf="authService.logIn">Registrar Interno</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" [routerLink]="['/internos']" routerLinkActive="active" *ngIf="authService.logIn">Internos</a>
+            </li>
+          </div>
+      </li>
+        <li class="nav-item dropdown" *ngIf="authService.logIn">
+          <a class="nav-link dropdown-toggle" id="navbardrop" data-toggle="dropdown">
+            <i class="fas fa-book"></i> Registro
+          </a>
+          <div class="dropdown-menu">
+            <li class="nav-item">
+              <a class="nav-link" [routerLink]="['/registros/add']" routerLinkActive="active" *ngIf="authService.logIn">Insertar Registro</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" [routerLink]="['/registros']" routerLinkActive="active" *ngIf="authService.logIn">Registros</a>
+            </li>
+          </div>
+      </li>
+
+        <li class="nav-item dropdown" *ngIf="authService.logIn">
+            <a class="nav-link dropdown-toggle" id="navbardrop" data-toggle="dropdown">
+              <i class="fa fa-product-hunt"></i> Productos
+            </a>
+            <div class="dropdown-menu">
+              <li class="nav-item">
+                <a class="nav-link" [routerLink]="['/products/add']" routerLinkActive="active" *ngIf="authService.logIn">Registar producto</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" [routerLink]="['/products']" routerLinkActive="active" *ngIf="authService.logIn">Productos</a>
+              </li>
+            </div>
+        </li>
+
+        <li class="nav-item dropdown" *ngIf="authService.logIn">
+            <a class="nav-link dropdown-toggle" id="navbardrop" data-toggle="dropdown">
+              <i class="fab fa-gripfire"></i>Incidentes
+            </a>
+            <div class="dropdown-menu">
+              <li class="nav-item">
+                <a class="nav-link" [routerLink]="['/incidents']" routerLinkActive="active" *ngIf="authService.logIn">Incidentes</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" [routerLink]="['/incidents/add']" routerLinkActive="active" *ngIf="authService.logIn">Registrar incidentes</a>
+              </li>
+            </div>
+        </li>
+        <li class="nav-item dropdown" *ngIf="authService.logIn">
+          <a class="nav-link dropdown-toggle" id="navbardrop" data-toggle="dropdown">
+            <i class="fas fa-briefcase"></i> Servicios
+          </a>
+          <div class="dropdown-menu">
+            <li class="nav-item">
+              <a class="nav-link" [routerLink]="['/services/add']" routerLinkActive="active" *ngIf="authService.logIn">Registrar Servicio caido</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" [routerLink]="['/services']" routerLinkActive="active" *ngIf="authService.logIn">Consultar Servicios Caidos</a>
+            </li>
+          </div>
+      </li>
+
+        <li class="nav-item">
+          <a class="nav-link" [routerLink]="['/login/add']" routerLinkActive="active" *ngIf="!authService.logIn"><i class="fas fa-plus-circle"></i> Registrarse</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" [routerLink]="['/login']" routerLinkActive="active" *ngIf="!authService.logIn"><i class="fas fa-sign-in-alt"></i> Iniciar sesión</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" (click)="logout()" *ngIf="authService.logIn"><i class="fas fa-sign-out-alt"></i> Cerrar sesión</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+  </nav>

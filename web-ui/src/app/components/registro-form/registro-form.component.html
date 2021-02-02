@@ -1,0 +1,43 @@
+<div class="col-md-4 offset-md-4">
+    
+    <div class="card">
+        <div class="card-body"> 
+            <h2 style="text-align: center;">Registrar</h2>
+            <form  method="POST">
+                <div class="form-group">
+                <label>Seleccione Fecha</label>
+                <input type="datetime-local" name="fecha"  [(ngModel)]="registro.fecha" class="form-control">
+                </div>
+                <label>Seleccione Incidente</label>
+                <div class="form-group">
+                  <select name="incidente" [(ngModel)]="registro.fk_incidente" placeholder="Incidente" class="form-control">
+                  <option value="0">Seleccione...</option>
+                  <option *ngFor="let incident of incidents" [value]="incident.incident_log_id">{{incident.inl_IM}}</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                <label>Ingrese Relacionado</label>
+                <input type="text" name="relacionado" [(ngModel)]="registro.relacionado" placeholder="Relacionado" class="form-control">
+                </div>
+              
+                <div class="form-group">
+                <label for="usuario">Usuario</label>
+                <input type="text" name="usuario" [(ngModel)]="registro.usuario" placeholder="Usuario quien escribe el incidente" class="form-control" readonly="readonly">
+                </div>
+                <label>Seleccione Producto</label>
+                <div class="form-group">
+                <select name="pkfk_id_producto" [(ngModel)]="registro.pkfk_id_producto" placeholder="Producto" class="form-control">
+                  <option value="0">Seleccione...</option>
+                  <option *ngFor="let product of products" [value]="product.product_id">{{product.acronym_product}} - {{product.name_product}}</option>
+                </select>
+                </div>
+      
+                <button class="btn btn-primary btn-block" (click)="edit ? updateRegistro() : saveNewRegistro()">
+                  Guardar
+                </button>
+                
+              </form>
+        </div>
+    </div>
+    
+</div>

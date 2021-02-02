@@ -1,0 +1,28 @@
+
+    <div class="col-md-6 mx-auto offset md-2">
+    <div class="card">
+        <div class="card-body">
+            <form>
+                <div class="mb-4">
+                    <div class="mb-4">
+
+                        <label for="exampleInputEmail1" class="form-label">Nombre de la Operación</label>
+                        <input type="text" name="Name" [(ngModel)]="operation.Name" placeholder="" class="form-control" autofocus>
+
+                    </div>
+                    <div class="mb-4">
+
+                        <label for="exampleInputEmail1" class="form-label">Abreviación</label>
+                        <input type="text" name="Initials" [(ngModel)]="operation.Initials" placeholder="" class="form-control" autofocus>
+
+                    </div>
+                </div>
+                    
+                <div class="d-grid gap-3">
+                    <button class="btn btn-success" type="button" (click)="edit ? updateOperation() : saveNewOperation()">Guardar</button>
+                    <button class="btn btn-primary" type="button" (click)="cancelSavesOperation()">Cancelar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    </div>

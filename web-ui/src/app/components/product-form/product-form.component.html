@@ -1,0 +1,20 @@
+<div class="col-md-6 mx-auto">
+    <div class="card">
+        <div class="card-body">
+            <form>
+                <input type="hidden" name="id" [(ngModel)]="product.product_id">
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <input type="text" name="name_product" [(ngModel)]="product.name_product" placeholder="Nombre del producto" class="form-control">
+                    </div>
+                    <div class="form-group col-md-6">
+                        <input type="text" name="acronym_product" [(ngModel)]="product.acronym_product" placeholder="Acronimo producto" class="form-control">
+                    </div>
+                </div>
+                <button class="btn btn-success btn-block" (click)="edit == true ? updateProduct() : saveNewProduct()">
+                    Guardar
+                </button>
+            </form>
+        </div>
+    </div>
+</div>

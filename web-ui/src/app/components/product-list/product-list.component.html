@@ -1,0 +1,37 @@
+<div class="row">
+    <div class="col-md-12">
+        <div class="title">
+            <div class="title-body">
+                <div class="table-responsive">
+                    <table datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger" class="table table-borderless">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Nombre producto</th>
+                                <th>Acronimo producto</th>
+                                <th>Acciones</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let product of products">
+                                <td>{{product.product_id}}</td>
+                                <td>{{product.name_product}}</td>
+                                <td>{{product.acronym_product}}</td>
+                                <td>
+                                    <div class="btn-group btn-group-sm text-center">
+                                        <button [routerLink]="['/products/edit', product.product_id]" class="btn btn-primary btn-sm" title="Editar">
+                                            <i class="fas fa-pencil-alt"></i>
+                                        </button>
+                                        <button class="btn btn-danger btn-sm" (click)="deleteProduct(product.product_id)" title="Eliminar">
+                                            <i class="fas fa-trash-alt"></i>
+                                        </button>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

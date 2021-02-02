@@ -1,0 +1,44 @@
+<div class="row">
+  <div class="col-md-12">
+      <div class="title">
+          <div class="title-body">
+              <div class="table-responsive">
+                  <table datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger" class="table table-borderless">
+                  <thead>
+                  <tr>
+                  <td>n°</td>
+                  <td>Fecha</td>
+                  <td>Incidente</td>
+                  <td>Relacionado</td>
+                  <td>Usuario</td>
+                  <td>Producto</td>
+                  <td>Acciones</td>
+               
+             </tr>
+           </thead>
+        
+           <tbody>
+                 <tr *ngFor="let registro of registros">
+                   <td> {{registro.id}} </td>
+                   <td> {{registro.fecha}} </td>
+                   <td> {{registro.inl_IM}} </td>
+                   <td> {{registro.relacionado}} </td>
+                   <td> {{registro.usuario}} </td>
+                   <td> {{registro.name_product}} </td>
+                   
+                   <td>
+                     
+                      <a  [routerLink]="['/registros/edit', registro.id]" class="btn btn-primary btn-sm" title="Editar"><i class="fas fa-pencil-alt"></i></a>
+                   
+                      <!-- <a (click)="deleteRegistro(registro.id)" class="btn btn-danger btn-sm" title="Eliminar"><i class="far fa-trash-alt"></i></a>-->
+                   </td>
+                 </tr>
+         
+             
+            </tbody>
+              </table>
+          </div>
+      </div>
+    </div>
+  </div>
+</div>
