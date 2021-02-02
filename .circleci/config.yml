@@ -4,9 +4,7 @@ orbs:
   node: circleci/node@4.1.0
   # https://circleci.com/developer/orbs/orb/circleci/aws-ecr
   #aws-ecr: circleci/aws-ecr@6.15.0
-  app-dir: 
-      type: string
-      default: "$CIRCLE_WORKING_DIRECTORY"
+working_directory: ~/incidents/web-ui
 jobs:
   test:
     executor:
