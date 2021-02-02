@@ -4,7 +4,7 @@ orbs:
   node: circleci/node@4.1.0
   # https://circleci.com/developer/orbs/orb/circleci/aws-ecr
   #aws-ecr: circleci/aws-ecr@6.15.0
-working_directory: ~/incidents/web-ui
+working_directory: ~/incidents/backend
 jobs:
   test:
     executor:
