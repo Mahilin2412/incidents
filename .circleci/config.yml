@@ -11,8 +11,7 @@ jobs:
       name: node/default
       tag: 14.15.1
     steps:
-    - checkout:
-        path: ~/backend
+    - checkout
     - node/install-packages:
         pkg-manager: npm
     - run:
