@@ -12,7 +12,7 @@ export class AuthService {
 
   constructor(private http: HttpClient,private router: Router) { }
 
-  API_URI = 'http://172.19.0.4:3000/api';
+  API_URI = 'http://100.25.110.94:3000/api';
 
   saveUser(user: Users){
     return this.http.post(`${this.API_URI}/auth`,user);

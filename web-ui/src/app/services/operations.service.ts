@@ -8,7 +8,7 @@ import { Observable } from 'rxjs';
 })
 export class OperationsService {
 
-  API_URI = 'http://172.19.0.4:3000/api';
+  API_URI = 'http://100.25.110.94:3000/api';
 
   constructor(private http: HttpClient) { }
     getOperations(){
